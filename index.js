@@ -1,8 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(cors({
+  origin: "http://localhost:3014",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+})); // permite todos los orígenes
 app.use(express.json());
+
 
 const validateIfAisInB = (values_left, values_right) => {
   return values_left.some((val) => values_right.includes(val))
@@ -274,4 +281,5 @@ const response = {
 app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
+
 });
