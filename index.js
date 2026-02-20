@@ -2,8 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const whiteList = [
+  'http://localhost:3014',
+  'https://effervescent-sundae-bbbab3.netlify.app'
+];
+
 app.use(cors({
-  origin: "http://localhost:3014",
+  origin: whiteList,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
@@ -281,3 +287,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
+
