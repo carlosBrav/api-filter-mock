@@ -31,7 +31,7 @@ app.post('/api/v1/filters', (req, res) => {
   } = req.body;
 const response = {
   "success": true,
-  "message": "Filtros dinámicos activos",
+  "message": "Success",
   "data": {
     "paymentSystem": [
       {
@@ -96,7 +96,7 @@ const response = {
         "enabled": true
       }
     ],
-    "atraction": [
+    "attraction": [
       {
         "key": "OPT_atraccion_collect",
         "value": "Collect",
@@ -197,6 +197,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
+
 
 
 
