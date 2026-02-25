@@ -21,7 +21,14 @@ const validateIfAisInB = (values_left, values_right) => {
 }
 
 app.post('/api/v1/filters', (req, res) => {
-  const { attractions } = req.body;
+  const { 
+    attractions = [], 
+    jackpots = [], 
+    providers = [], 
+    themes = [],
+    paymentSystem = [],
+    volatility = []
+  } = req.body;
 const response = {
   "success": true,
   "message": "Filtros dinámicos activos",
@@ -35,30 +42,30 @@ const response = {
       {
         "key": "OPT_game_type_ways_megaways",
         "value": "Megaways",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_collect", "OPT_atraccion_respin"]) && 
-                   !validateIfAisInB(jackpotType, ["OPT_jackpot_type_standalone"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_collect", "OPT_atraccion_respin"]) || 
+                   validateIfAisInB(jackpots, ["OPT_jackpot_type_standalone"])
       },
       {
         "key": "OPT_game_type_cluster",
         "value": "Cluster",
-        "enabled": !validateIfAisInB(providers, ["pragmatic", "nolimitcity"])
+        "enabled": validateIfAisInB(providers, ["pragmatic", "nolimitcity"])
       },
       {
         "key": "OPT_game_type_anywhere",
         "value": "Anywhere",
-        "enabled": !validateIfAisInB(themes, ["OPT_theme_animales_salvajes"])
+        "enabled": validateIfAisInB(themes, ["OPT_theme_animales_salvajes"])
       }
     ],
     "providers": [
       {
         "key": "casinoTechnology",
         "value": "CT Interactive",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_multiple_grids", "OPT_atraccion_Expanding_Reels"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_multiple_grids", "OPT_atraccion_Expanding_Reels"])
       },
       {
         "key": "pragmatic",
         "value": "Pragmatic",
-        "enabled": !validateIfAisInB(paymentSystem, ["OPT_game_type_cluster"])
+        "enabled": validateIfAisInB(paymentSystem, ["OPT_game_type_cluster"])
       },
       {
         "key": "atomicslotlab",
@@ -68,20 +75,20 @@ const response = {
       {
         "key": "nolimitcity",
         "value": "Nolimit city",
-        "enabled": !validateIfAisInB(volatility, ["OPT_vol_low"]) && 
-                   !validateIfAisInB(jackpotType, ["OPT_jackpot_type_compartido"])
+        "enabled": validateIfAisInB(volatility, ["OPT_vol_low"]) || 
+                   validateIfAisInB(jackpots, ["OPT_jackpot_type_compartido"])
       }
     ],
     "jackpotType": [
       {
         "key": "OPT_jackpot_type_compartido",
         "value": "Compartido",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_risk_gamble", "OPT_atraccion_cascada"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_risk_gamble", "OPT_atraccion_cascada"])
       },
       {
         "key": "OPT_jackpot_type_standalone",
         "value": "Standalone",
-        "enabled": !validateIfAisInB(paymentSystem, ["OPT_game_type_ways_megaways"])
+        "enabled": validateIfAisInB(paymentSystem, ["OPT_game_type_ways_megaways"])
       },
       {
         "key": "OPT_jackpot_type_compartido_juego",
@@ -93,37 +100,37 @@ const response = {
       {
         "key": "OPT_atraccion_collect",
         "value": "Collect",
-        "enabled": !validateIfAisInB(providers, ["nolimitcity"])
+        "enabled": validateIfAisInB(providers, ["nolimitcity"])
       },
       {
         "key": "OPT_atraccion_respin",
         "value": "Respin",
-        "enabled": !validateIfAisInB(themes, ["OPT_theme_aventura"])
+        "enabled": validateIfAisInB(themes, ["OPT_theme_aventura"])
       },
       {
         "key": "OPT_atraccion_cascada",
         "value": "Cascada",
-        "enabled": !validateIfAisInB(jackpotType, ["OPT_jackpot_type_compartido"])
+        "enabled": validateIfAisInB(jackpots, ["OPT_jackpot_type_compartido"])
       },
       {
         "key": "OPT_atraccion_colossal_symbols",
         "value": "Colossal symbols",
-        "enabled": !validateIfAisInB(volatility, ["OPT_vol_high", "OPT_vol_very_high"])
+        "enabled": validateIfAisInB(volatility, ["OPT_vol_high", "OPT_vol_very_high"])
       },
       {
         "key": "OPT_atraccion_increasing_multipliers",
         "value": "Increasing multipliers",
-        "enabled": !validateIfAisInB(paymentSystem, ["OPT_game_type_cluster"])
+        "enabled": validateIfAisInB(paymentSystem, ["OPT_game_type_cluster"])
       },
       {
         "key": "OPT_atraccion_Expanding_Reels",
         "value": "Expanding reels",
-        "enabled": !validateIfAisInB(providers, ["casinoTechnology"])
+        "enabled": validateIfAisInB(providers, ["casinoTechnology"])
       },
       {
         "key": "OPT_atraccion_risk_gamble",
         "value": "Risk Gamble",
-        "enabled": !validateIfAisInB(jackpotType, ["OPT_jackpot_type_compartido"])
+        "enabled": validateIfAisInB(jackpots, ["OPT_jackpot_type_compartido"])
       },
       // Los demás se mantienen true para no sobre-bloquear (mantener el ~55%)
       { "key": "OPT_atraccion_sticky_wild", "value": "Sticky wild", "enabled": true },
@@ -145,12 +152,12 @@ const response = {
       {
         "key": "OPT_theme_animales_salvajes",
         "value": "Animales Salvajes",
-        "enabled": !validateIfAisInB(paymentSystem, ["OPT_game_type_anywhere"])
+        "enabled": validateIfAisInB(paymentSystem, ["OPT_game_type_anywhere"])
       },
       {
         "key": "OPT_theme_aventura",
         "value": "Aventura",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_respin"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_respin"])
       },
       {
         "key": "OPT_theme_naturaleza",
@@ -162,7 +169,7 @@ const response = {
       {
         "key": "OPT_vol_low",
         "value": "Baja",
-        "enabled": !validateIfAisInB(providers, ["nolimitcity"])
+        "enabled": validateIfAisInB(providers, ["nolimitcity"])
       },
       {
         "key": "OPT_vol_medium",
@@ -172,12 +179,12 @@ const response = {
       {
         "key": "OPT_vol_high",
         "value": "Alta",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_colossal_symbols"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_colossal_symbols"])
       },
       {
         "key": "OPT_vol_very_high",
         "value": "Muy Alta",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_increasing_multipliers"])
+        "enabled": validateIfAisInB(attractions, ["OPT_atraccion_increasing_multipliers"])
       }
     ]
   }
@@ -190,5 +197,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
+
 
 
