@@ -1,6 +1,7 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const cors = cors();
+
 const PORT = process.env.PORT || 3000;
 const whiteList = [
   'http://localhost:3014',
@@ -209,4 +210,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
+
 
