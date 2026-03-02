@@ -60,12 +60,14 @@ const response = {
         "key": "casinoTechnology",
         "value": "CT Interactive",
         "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_multiple_grids", "OPT_atraccion_Expanding_Reels"]),
-        "default": true
+        "default": true,
+        "default": false
       },
       {
         "key": "pragmatic",
         "value": "Pragmatic",
-        "enabled": !validateIfAisInB(payment_systems, ["OPT_game_type_cluster"])
+        "enabled": !validateIfAisInB(payment_systems, ["OPT_game_type_cluster"]),
+        "default": false
       },
       {
         "key": "atomicslotlab",
@@ -77,17 +79,20 @@ const response = {
         "key": "nolimitcity",
         "value": "Nolimit city",
         "enabled": !validateIfAisInB(volatilities, ["OPT_vol_low"]) && 
-                   !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"])
+                   !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"]),
+                   "default": false
       },
       {
         "key": "playson",
         "value": "Playson",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "redtiger",
         "value": "Red Tiger",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "hacksawgaming",
@@ -98,22 +103,26 @@ const response = {
       {
         "key": "amusnet",
         "value": "Amusnet",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "nolimitcity",
         "value": "Nolimit City",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "netent",
         "value": "Netent",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "gamomat",
         "value": "Gamomat",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
 
       {
@@ -123,73 +132,81 @@ const response = {
         "default": true
       },
       {
-        key: 'oryx',
-        value: 'Bragg (Oryx)',
-        enabled: true,
+        "key": 'oryx',
+        "value": 'Bragg (Oryx)',
+        "enabled": true,
         "default": true
       },
       {
-        key: 'playtech',
-        value: 'Playtech',
-        enabled: true
+        "key": 'playtech',
+        "value": 'Playtech',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'synot',
-        value: 'Synot',
-        enabled: true
+        "key": 'synot',
+        "value": 'Synot',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'zitro',
-        value: 'Zitro',
-        enabled: true
+        "key": 'zitro',
+        "value": 'Zitro',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'endorphina',
-        value: 'Endorphina',
-        enabled: true
+        "key": 'endorphina',
+        "value": 'Endorphina',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'Spribe',
-        value: 'Spribe',
-        enabled: true,
+        "key": 'Spribe',
+        "value": 'Spribe',
+        "enabled": true,
         "default": true
       },
       {
-        key: 'CTInteractive',
-        value: 'CT Interactive',
-        enabled: true
+        "key": 'CTInteractive',
+        "value": 'CT Interactive',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'BigTimeGaming',
-        value: 'Big Time',
-        enabled: true,
+        "key": 'BigTimeGaming',
+        "value": 'Big Time',
+        "enabled": true,
         "default": true
       },
       {
-        key: 'wazdan',
-        value: 'Wazdan',
-        enabled: true,
+        "key": 'wazdan',
+        "value": 'Wazdan',
+        "enabled": true,
         "default": true
       },
       {
-        key: 'platipus',
-        value: 'Platipus',
-        enabled: true
+        "key": 'platipus',
+        "value": 'Platipus',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'habanero',
-        value: 'Habanero',
-        enabled: true
+        "key": 'habanero',
+        "value": 'Habanero',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'bgaming',
-        value: 'BGaming',
-        enabled: true
+        "key": 'bgaming',
+        "value": 'BGaming',
+        "enabled": true,
+        "default": false
       },
       {
-        key: 'booming',
-        value: 'Booming',
-        enabled: true,
+        "key": 'booming',
+        "value": 'Booming',
+        "enabled": true,
         "default": true
       },
     ],
@@ -214,62 +231,74 @@ const response = {
       {
         "key": "OPT_atraccion_collect",
         "value": "Collect",
-        "enabled": !validateIfAisInB(providers, ["nolimitcity"])
+        "enabled": !validateIfAisInB(providers, ["nolimitcity"]),
+        "default": true
       },
       {
         "key": "OPT_atraccion_respin",
         "value": "Respin",
-        "enabled": !validateIfAisInB(themes, ["OPT_theme_aventura"])
+        "enabled": !validateIfAisInB(themes, ["OPT_theme_aventura"]),
+        "default": false
       },
       {
         "key": "OPT_atraccion_cascada",
         "value": "Cascada",
-        "enabled": !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"])
+        "enabled": !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"]),
+        "default": false
       },
       {
         "key": "OPT_atraccion_colossal_symbols",
         "value": "Colossal symbols",
-        "enabled": !validateIfAisInB(volatilities, ["OPT_vol_high", "OPT_vol_very_high"])
+        "enabled": !validateIfAisInB(volatilities, ["OPT_vol_high", "OPT_vol_very_high"]),
+        "default": true
       },
       {
         "key": "OPT_atraccion_increasing_multipliers",
         "value": "Increasing multipliers",
-        "enabled": !validateIfAisInB(payment_systems, ["OPT_game_type_cluster"])
+        "enabled": !validateIfAisInB(payment_systems, ["OPT_game_type_cluster"]),
+        "default": false
       },
       {
         "key": "OPT_atraccion_Expanding_Reels",
         "value": "Expanding reels",
-        "enabled": !validateIfAisInB(providers, ["casinoTechnology"])
+        "enabled": !validateIfAisInB(providers, ["casinoTechnology"]),
+        "default": false
       },
       {
         "key": "OPT_atraccion_risk_gamble",
         "value": "Risk Gamble",
-        "enabled": !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"])
+        "enabled": !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"]),
+        "default": true
       },
       {
         "key": "OPT_atraccion_Symbol_Multipliers",
         "value": "Symbol Multipliers",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "OPT_atraccion_compra_atraccion",
         "value": "Compra Atraccion",
-        "enabled": true
+        "enabled": true,
+        "default": true
       },
       {
         "key": "OPT_atraccion_expanding_wild",
         "value": "Expanding Wild",
-        "enabled": true
+        "enabled": true,
+        "default": false
       },
       {
         "key": "OPT_atraccion_random_wilds",
         "value": "Random Wilds",
-        "enabled": true
+        "enabled": true,
+        "default": true
       },
       {
         "key": "OPT_atraccion_wild_multiplicador",
         "value": "Wild Multiplicador",
-        "enabled": true
+        "enabled": true,
+        "default": true
       }
     ],
    "themes": [
