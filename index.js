@@ -59,7 +59,8 @@ const response = {
       {
         "key": "casinoTechnology",
         "value": "CT Interactive",
-        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_multiple_grids", "OPT_atraccion_Expanding_Reels"])
+        "enabled": !validateIfAisInB(attractions, ["OPT_atraccion_multiple_grids", "OPT_atraccion_Expanding_Reels"]),
+        "default": true
       },
       {
         "key": "pragmatic",
@@ -69,14 +70,128 @@ const response = {
       {
         "key": "atomicslotlab",
         "value": "Bragg (Oryx)",
-        "enabled": true
+        "enabled": true,
+        "default": true
       },
       {
         "key": "nolimitcity",
         "value": "Nolimit city",
         "enabled": !validateIfAisInB(volatilities, ["OPT_vol_low"]) && 
                    !validateIfAisInB(type_jackpots, ["OPT_jackpot_type_compartido"])
-      }
+      },
+      {
+        "key": "playson",
+        "value": "Playson",
+        "enabled": true
+      },
+      {
+        "key": "redtiger",
+        "value": "Red Tiger",
+        "enabled": true
+      },
+      {
+        "key": "hacksawgaming",
+        "value": "Hacksaw Gaming",
+        "enabled": true,
+        "default": true
+      },
+      {
+        "key": "amusnet",
+        "value": "Amusnet",
+        "enabled": true
+      },
+      {
+        "key": "nolimitcity",
+        "value": "Nolimit City",
+        "enabled": true
+      },
+      {
+        "key": "netent",
+        "value": "Netent",
+        "enabled": true
+      },
+      {
+        "key": "gamomat",
+        "value": "Gamomat",
+        "enabled": true
+      },
+
+      {
+        "key": 'pragmatic',
+        "value": 'Pragmatic',
+        "enabled": true,
+        "default": true
+      },
+      {
+        key: 'oryx',
+        value: 'Bragg (Oryx)',
+        enabled: true,
+        "default": true
+      },
+      {
+        key: 'playtech',
+        value: 'Playtech',
+        enabled: true
+      },
+      {
+        key: 'synot',
+        value: 'Synot',
+        enabled: true
+      },
+      {
+        key: 'zitro',
+        value: 'Zitro',
+        enabled: true
+      },
+      {
+        key: 'endorphina',
+        value: 'Endorphina',
+        enabled: true
+      },
+      {
+        key: 'Spribe',
+        value: 'Spribe',
+        enabled: true,
+        "default": true
+      },
+      {
+        key: 'CTInteractive',
+        value: 'CT Interactive',
+        enabled: true
+      },
+      {
+        key: 'BigTimeGaming',
+        value: 'Big Time',
+        enabled: true,
+        "default": true
+      },
+      {
+        key: 'wazdan',
+        value: 'Wazdan',
+        enabled: true,
+        "default": true
+      },
+      {
+        key: 'platipus',
+        value: 'Platipus',
+        enabled: true
+      },
+      {
+        key: 'habanero',
+        value: 'Habanero',
+        enabled: true
+      },
+      {
+        key: 'bgaming',
+        value: 'BGaming',
+        enabled: true
+      },
+      {
+        key: 'booming',
+        value: 'Booming',
+        enabled: true,
+        "default": true
+      },
     ],
     "jackpotType": [
       {
@@ -210,5 +325,3 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
-
-
