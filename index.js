@@ -86,7 +86,7 @@ const response = {
         "key": "playson",
         "value": "Playson",
         "enabled": true,
-        "default": false
+        "default": true
       },
       {
         "key": "redtiger",
@@ -354,3 +354,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
+
