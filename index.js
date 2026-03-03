@@ -92,7 +92,7 @@ const response = {
         "key": "redtiger",
         "value": "Red Tiger",
         "enabled": true,
-        "default": false
+        "default": true
       },
       {
         "key": "hacksawgaming",
@@ -248,13 +248,13 @@ const response = {
       },
       {
         "key": "OPT_atraccion_colossal_symbols",
-        "value": "Colossal symbols",
+        "value": "Colossal symbols 1234567890000",
         "enabled": !validateIfAisInB(volatilities, ["OPT_vol_high", "OPT_vol_very_high"]),
         "default": true
       },
       {
         "key": "OPT_atraccion_increasing_multipliers",
-        "value": "Increasing multipliers",
+        "value": "Increasing multipliers 123",
         "enabled": !validateIfAisInB(payment_systems, ["OPT_game_type_cluster"]),
         "default": false
       },
@@ -354,4 +354,3 @@ app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en http://localhost:${PORT}`);
   console.log('Prueba GET: http://localhost:3000/usuarios');
 });
-
